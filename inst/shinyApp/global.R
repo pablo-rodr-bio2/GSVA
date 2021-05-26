@@ -10,7 +10,7 @@ library(future)
 library(promises)
 library(shinyjs)
 library(shinybusy)
-library(shinydashboard)
+library(bs4Dash)
 
 ### there seems to be a problem with the DT package colliding with plotly
 ### so first check if the package is loaded and if it is, unload it

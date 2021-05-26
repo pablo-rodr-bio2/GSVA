@@ -1,13 +1,13 @@
 matrixUI <- function(id){
   ns <- NS(id)
-  div(id = ns("matrix-input"),
+  tagList(
     radioButtons(ns("matrixSourceType"),
-                 label = h5("EXPRESSION DATA MATRIX", style="font-weight: bold"),
+                 label = h5("EXPRESSION MATRIX", style="font-weight: bold"),
                  choices = c("From file" = "fileMatrix",
-                   "From workspace" = "varMatrix")),
+                             "From workspace" = "varMatrix")),
     conditionalPanel(
       condition = "input.matrixSourceType == 'fileMatrix'", ns = ns,
-      fileInput(ns("matrixFile"), "Choose expression data matrix file:",
+      fileInput(ns("matrixFile"), label = NULL,
                 accept = c(
                   "text/csv",
                   "text/comma-separated-values,text/plain",
@@ -15,10 +15,11 @@ matrixUI <- function(id){
     ),
     conditionalPanel(
       condition = "input.matrixSourceType == 'varMatrix'", ns= ns,
-      selectInput(ns("matrixVar"), "Choose expression data matrix object:",
+      selectInput(ns("matrixVar"), label = NULL,
                   ls(envir=.GlobalEnv))
     )
   )
+  
 }
 
 matrixServer <- function(id){

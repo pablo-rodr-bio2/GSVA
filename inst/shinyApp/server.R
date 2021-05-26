@@ -158,6 +158,10 @@ function(input, output, session) {
   
   ##################### UI SETUPS #####################
   
+  observeEvent(input$arg, {
+      updateControlbar(id = "controlbar", session = session)
+  })
+  
   ## ENABLING 'RUN' BTN
   observe({
     if(!is.null(matrix()) && !is.null(genesets())){

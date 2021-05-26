@@ -1,18 +1,18 @@
 geneSetsUI <- function(id){
   ns <- NS(id)
-  div( id = ns("genesets-input"),
+  tagList(
     radioButtons(ns("genesetSourceType"), 
                  label = h5("GENE SETS", style="font-weight: bold"),
                  choices = c("From file" = "fileGeneset",
                    "From workspace" = "varGeneset")),
     conditionalPanel(
       condition = "input.genesetSourceType == 'fileGeneset'", ns = ns,
-      fileInput(ns("genesetFile"), "Choose gene sets file:",
+      fileInput(ns("genesetFile"), label = NULL,
                 accept = c(".gmt", "text/csv", ".csv"))
     ),
     conditionalPanel(
       condition = "input.genesetSourceType == 'varGeneset'", ns = ns, 
-      selectInput(ns("genesetVar"), "Choose gene sets object:",
+      selectInput(ns("genesetVar"), label = NULL,
                   ls(envir=.GlobalEnv))
     )
   )

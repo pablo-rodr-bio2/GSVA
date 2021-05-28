@@ -1,4 +1,4 @@
-dashboardPage(
+bs4DashPage(
   title = "GSVA Shiny Application",
   dark = TRUE,
   header = bs4DashNavbar(
@@ -19,9 +19,7 @@ dashboardPage(
     fluidRow(
       column(width = 12, align ="center",
              div("CHANGE DEFAULT SETTINGS?", align = "center"),
-             # actionButton(inputId = "arg", label = "CHANGE")
-             # materialSwitch(inputId = "arg", label = "CHANGE", status = "success")
-             switchInput(inputId = "arg", value = FALSE)
+             shinyWidgets::switchInput(inputId = "arg", value = FALSE)
              )
       ),
     br(),
@@ -31,8 +29,8 @@ dashboardPage(
                           width = "10vw"),
              downloadUI("download"),
              closeBtnUI("close")
-             )
       )
+    )
   ),
   
   body = dashboardBody(

@@ -11,6 +11,7 @@ library(promises)
 library(shinyjs)
 library(shinybusy)
 library(bs4Dash)
+library(shinyWidgets)
 
 ### there seems to be a problem with the DT package colliding with plotly
 ### so first check if the package is loaded and if it is, unload it

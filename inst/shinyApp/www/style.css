@@ -4,17 +4,48 @@
   font-weight: bold;
 }
 
-#title_gsva {
-  background-color: black;
+#matrix1-matrixSourceType-label, #genes1-genesetSourceType-label, #arg-label {
+  background-color: #708090;
+  font-size: 20px;
+  display: block;
+  text-align: center;
 }
 
-#app_title {
-  color: white;
+.shiny-options-group {
+  padding-top: 20px;
+  margin-bottom: -25px;
+}
+
+#button {
+  color: #fff; 
+  background-color: #8A2BE2;
   font-weight: bold;
-  font-size: 30px;
+  border-color: #fff;
   padding: 5px 5px 5px 5px;
   margin: 5px 5px 5px 5px;
 }
+
+#download-downloadData {
+  color: #fff;
+  background-color: #27ae60;
+  font-weight: bold;
+  border-color: #fff;
+  padding: 5px 14px 5px 14px;
+  margin: 5px 5px 5px 5px;
+  width: 10vw;
+}
+
+#close-closeSave{
+  color: #fff;
+  background-color: red;
+  font-weight: bold;
+  border-color: #fff;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+
+/**
 
 #matrix1-matrix-input, #genes1-genesets-input, #arg {
   background-color: #708090;
@@ -22,13 +53,7 @@
   padding-bottom: 5px;
 }
 
-#matrix1-matrixSourceType-label, #genes1-genesetSourceType-label, #arg-label {
-  background-color: #6495ED;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-  border-radius: 15px;
-}
+
 
 #args-well {
   background: #708090;
@@ -76,6 +101,19 @@
   background-color: #8A2BE2;
   font-weight: bold;
   border-color: #fff;
+  padding: 5px 5px 5px 5px;
+  margin: 5px 5px 5px 5px;
+}
+
+
+#title_gsva {
+  background-color: black;
+}
+
+#app_title {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
   padding: 5px 5px 5px 5px;
   margin: 5px 5px 5px 5px;
 }

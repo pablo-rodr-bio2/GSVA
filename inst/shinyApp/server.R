@@ -159,8 +159,12 @@ function(input, output, session) {
   ##################### UI SETUPS #####################
   
   observeEvent(input$arg, {
-      updateControlbar(id = "controlbar", session = session)
-  })
+    if(input$arg == TRUE) {
+      runjs("$('.control-sidebar').ControlSidebar('show');")
+    } else {
+      runjs("$('.control-sidebar').ControlSidebar('collapse');")
+    }
+  }, ignoreInit = TRUE)
   
   ## ENABLING 'RUN' BTN
   observe({

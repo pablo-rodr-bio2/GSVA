@@ -2,33 +2,37 @@ dashboardPage(
   title = "GSVA Shiny Application",
   dark = TRUE,
   header = bs4DashNavbar(
-    tags$li(class = "dropdown",
-            tags$div(id = "app_title", "GSVA Shiny Application")
-    ),
-    title = tags$img(src="GSVA.png", height=75, width=75)
+    title = bs4DashBrand( title = "GSVA Shiny Application", image = "GSVA.png", opacity = 1)
   ),
   
   sidebar = dashboardSidebar(
-    # tags$head(
-    #   tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
-    # ),
+    width = "320px",
+    minified = FALSE,
+    tags$head(
+      tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+    ),
+    br(),
     div(h3("DATA INPUT", style="font-weight: bold"), align = "center"),
     br(),
     matrixUI("matrix1"),
     geneSetsUI("genes1"),
-    br(),
-    div("CHANGE DEFAULT SETTINGS?", align = "center"),
-    actionButton(inputId = "arg", label = "CHANGE"),
+    fluidRow(
+      column(width = 12, align ="center",
+             div("CHANGE DEFAULT SETTINGS?", align = "center"),
+             # actionButton(inputId = "arg", label = "CHANGE")
+             # materialSwitch(inputId = "arg", label = "CHANGE", status = "success")
+             switchInput(inputId = "arg", value = FALSE)
+             )
+      ),
     br(),
     fluidRow(
-      column(
-        width = 12, align = "left",
-        actionButton("button", "RUN", class = "run-btn", icon = icon("play-circle"),
-                     width = "10vw"),
-        downloadUI("download"),
-        closeBtnUI("close")
+      column(width = 12, align = "center",
+             actionButton("button", "RUN", class = "run-btn", icon = icon("play-circle"),
+                          width = "10vw"),
+             downloadUI("download"),
+             closeBtnUI("close")
+             )
       )
-    )
   ),
   
   body = dashboardBody(
